@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/events/page.jsx", "app/events/[id]/page.jsx", "app/dashboard/page.jsx", "app/signin/page.jsx", "app/api/calender/add/route.js", "app/admin/dashboard/create-event/page.tsx", "app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/events/page.jsx", "app/events/[id]/page.jsx", "app/dashboard/page.jsx", "app/signin/page.jsx", "app/api/calender/add/route.js", "app/admin/dashboard/create-event/page.tsx", "app/page.jsx", "app/layout.jsx"],
   "exclude": ["node_modules"]
 }

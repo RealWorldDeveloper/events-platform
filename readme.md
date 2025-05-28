@@ -1,32 +1,7 @@
-'use client'
-import React, { useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { CalendarDays, ChevronRight, Clock, MapPin, Star, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import Navbar from '@/components/navbar/Navbar'
-
-import {useAuth} from '@/context/authContext'
-
-export default function Home() {
-  const [featureEvents, setFeatureEvents] = useState([])
-  const {event} = useAuth()
-  const filterEvents = event.filter((event) => event.isFeatured === true)
-  useEffect(() => {
-    const filtered = event.filter((event) => event.isFeatured === true);
-    setFeatureEvents(filtered);
-  }, [event])
-  
-
-  return (
- 
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
-      
-      <Navbar/>
+ <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
+     <Navbar/>
       {/* Hero Section */}
-      <section className="rel</div>ative py-20 md:py-32 overflow-hidden">
+      {/* <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(128,0,255,0.4),transparent_40%)]"></div>
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,0,128,0.4),transparent_40%)]"></div>
@@ -62,7 +37,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Latest Events Section */}
       <section id="events" className="py-20 bg-black/50">
@@ -81,7 +56,7 @@ export default function Home() {
                 className="bg-gray-900 border-gray-800 overflow-hidden hover:border-purple-500 transition-all duration-300"
               >
                 <div className="relative h-48">
-                  <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                  <Image src={event.image || "/placeholder.svg"} alt={event.title} fill={true} className="object-cover" />
                   <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
                     {event.category}
                   </div>
@@ -353,44 +328,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer> 
+      </footer>
     </div>
-  )
-}
+
+
+
 
 // Sample data for events
-const events = [
-  {
-    title: "Community Tech Workshop",
-    description: "Learn the basics of web development in this hands-on workshop.",
-    date: "May 25, 2025",
-    time: "10:00 AM - 2:00 PM",
-    location: "Tech Hub, Downtown",
-    category: "Workshop",
-    attendees: 42,
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    title: "Summer Music Festival",
-    description: "Enjoy live performances from local and international artists.",
-    date: "June 12, 2025",
-    time: "4:00 PM - 11:00 PM",
-    location: "Central Park",
-    category: "Music",
-    attendees: 156,
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    title: "Charity Run 2025",
-    description: "Join us for a 5K run to raise funds for local charities.",
-    date: "July 8, 2025",
-    time: "8:00 AM - 12:00 PM",
-    location: "Riverside Park",
-    category: "Sports",
-    attendees: 89,
-    image: "/placeholder.svg?height=300&width=500",
-  },
-]
 
 // Sample data for features
 const features = [
