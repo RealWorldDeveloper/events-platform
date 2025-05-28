@@ -21,8 +21,10 @@ export default function Home() {
   
 
   return (
+ 
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
-     <Navbar/>
+      
+      <Navbar/>
       {/* Hero Section */}
       <section className="rel</div>ative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
@@ -351,7 +353,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> 
     </div>
   )
 }

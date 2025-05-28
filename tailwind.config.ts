@@ -3,13 +3,12 @@ import type { Config } from "tailwindcss"
 const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
+     "./pages/**/*.{js,jsx}",
     "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
-  prefix: "",
+   prefix: "",
   theme: {
     container: {
       center: true,
@@ -18,7 +17,7 @@ const config = {
         "2xl": "1400px",
       },
     },
-    extend: {
+   extend: {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -79,3 +78,4 @@ const config = {
 } satisfies Config
 
 export default config
+
