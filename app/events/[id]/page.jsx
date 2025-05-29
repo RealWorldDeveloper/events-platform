@@ -14,7 +14,7 @@ import {
   Ticket,
   Users,
 } from "lucide-react";
-import { useToast } from "../../../hooks/use-toast"
+import { useToast } from "../../../hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/navbar/Navbar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -37,10 +37,9 @@ import { useAuth } from "@/context/authContext";
 export default function EventDetailsPage() {
   const router = useRouter();
   const params = useParams();
- 
-  
-  const { toast } = useToast()
-  const { event, user} = useAuth();
+
+  const { toast } = useToast();
+  const { event, user } = useAuth();
   const eventId = params.id;
   const [singleEvent, setSingleEvent] = useState({});
 
@@ -52,13 +51,11 @@ export default function EventDetailsPage() {
     // Simulate API loading
     const findEvent = event.find((event) => event._id === params.id);
 
-    
     setSingleEvent(findEvent);
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
   }, [event, eventId]);
-
 
   const handleEventRegister = () => {
     if (!user || !user.id) {
@@ -71,13 +68,13 @@ export default function EventDetailsPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({eventId:singleEvent._id, userId: user.id }),
+      body: JSON.stringify({ eventId: singleEvent._id, userId: user.id }),
     })
       .then((response) => {
         if (!response.ok) {
-            toast({
-          title: response.message,
-        });
+          toast({
+            title: response.message,
+          });
         }
         return response.json();
       })
@@ -85,14 +82,13 @@ export default function EventDetailsPage() {
         toast({
           title: data.message,
         });
-        
       })
       .catch((error) => {
         // Handle errors (e.g., show an error message)
         console.error("Registration error:", error);
       });
   };
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white flex items-center justify-center">
@@ -130,11 +126,10 @@ export default function EventDetailsPage() {
     );
   }
 
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
       {/* Navbar */}
-    <Navbar/>
+      <Navbar />
 
       {/* Page Content */}
       <div className="container mx-auto px-4 py-8">
@@ -171,7 +166,12 @@ export default function EventDetailsPage() {
           {/* Event Image */}
           <div className="lg:col-span-2">
             <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800">
-              <Image src={singleEvent.image || "/placeholder.svg"} alt={singleEvent.title} fill className="object-cover" />
+              <Image
+                src={singleEvent.image || "/placeholder.svg"}
+                alt={singleEvent.title}
+                fill
+                className="object-cover"
+              />
               {singleEvent.featured && (
                 <div className="absolute top-4 left-4 bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
                   Featured
@@ -195,14 +195,22 @@ export default function EventDetailsPage() {
                   <CalendarDays className="h-5 w-5 text-purple-400 mt-0.5" />
                   <div>
                     <span className="font-medium">Date & Time: </span>
-                    <span className="text-gray-400"> {singleEvent.date
-                        ? new Date(singleEvent.date).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                          })
-                        : ""}</span>
-                    <p className="text-gray-400">Start: {singleEvent.startTime}</p>
+                    <span className="text-gray-400">
+                      {" "}
+                      {singleEvent.date
+                        ? new Date(singleEvent.date).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            }
+                          )
+                        : ""}
+                    </span>
+                    <p className="text-gray-400">
+                      Start: {singleEvent.startTime}
+                    </p>
                     <p className="text-gray-400">End: {singleEvent.endTime}</p>
                   </div>
                 </div>
@@ -324,8 +332,6 @@ export default function EventDetailsPage() {
             >
               Details
             </TabsTrigger>
-         
-        
           </TabsList>
 
           <TabsContent value="details" className="space-y-8">
@@ -518,7 +524,6 @@ export default function EventDetailsPage() {
             </div>
           </TabsContent>
         </Tabs>
-
       </div>
 
       {/* Footer */}

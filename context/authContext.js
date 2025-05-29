@@ -105,12 +105,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     fetchEvent();
 
-    // Only run fetchUser if not on public route and not already fetched
-    if (!publicRoutes.includes(pathname) && !hasFetchedUser.current) {
+    if (!hasFetchedUser.current) {
       hasFetchedUser.current = true;
       fetchUser();
-    } else {
-      setLoading(false);
     }
   }, [pathname]);
  
