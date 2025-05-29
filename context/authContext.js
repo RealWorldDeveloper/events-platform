@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const pathname = usePathname();
   const hasFetchedUser = useRef(false);
 
-  const publicRoutes = ['/' ,"/signin",'/admin','/events'];
+  // const publicRoutes = ['/' ,"/signin",'/admin','/events'];
 
   const fetchUser = async () => {
     try {
@@ -70,6 +70,7 @@ export const AuthProvider = ({ children }) => {
 
         if (res.ok && result.success) {
           await fetchUser();
+          setLoading(false);
           router.push( "/dashboard");
         } else {
           router.push("/signin");

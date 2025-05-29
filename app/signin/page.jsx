@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
@@ -15,7 +16,21 @@ import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/context/authContext";
 
 export default function SignIn() {
-  const { handleLogin } = useAuth();
+  const { handleLogin, loading } = useAuth();
+  const [delayedLoading, setDelayedLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDelayedLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading || delayedLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 flex flex-col">
