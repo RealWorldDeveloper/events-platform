@@ -42,12 +42,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { set } from "mongoose";
 export default function Dashboard() {
   const router = useRouter();
   const { user, loading, setLoading, handleLogout } = useAuth();
   const [registrEvent, setRegisterEvent] = useState([]);
   const { toast } = useToast();
-
+  const [delayedLoading, setDelayedLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("all");
   const [eventToDelete, setEventToDelete] = useState(null);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -65,7 +66,13 @@ export default function Dashboard() {
       fetch(`/api/register-event?userId=${user.id}`)
         .then((res) => res.json())
         .then((data) => {
+          const timer = setTimeout(() => {
+            setDelayedLoading(false)
           setRegisterEvent(data.events || []);
+          }, 1000);
+      return () => clearTimeout(timer);
+          
+          
         })
         .catch((err) => {
           console.error("Failed to fetch registered events:", err);
@@ -125,7 +132,7 @@ export default function Dashboard() {
     return event.status === activeTab;
   });
 
-  if (loading) {
+  if (loading || delayedLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
