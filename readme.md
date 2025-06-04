@@ -1,4 +1,4 @@
-JV - Events Platform
+SE - Events Platform
 
 Project Summary
 The JV - Events Platform is a community-driven application designed to help small businesses create, manage, and share events with their community members. The platform allows users to browse events, sign up for them, and add events to their Google Calendar. Staff members have additional privileges to create and manage events.
