@@ -22,7 +22,7 @@ function Navbar() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-full w-8 h-8 flex items-center justify-center">
-            <span className="font-bold">JV</span>
+            <span className="font-bold">SE</span>
           </div>
           <span className="font-bold text-xl">Events</span>
         </Link>
