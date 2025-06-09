@@ -35,15 +35,14 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400">
-              Connect With Your Community Through Events
+              Amazing Events waiting near you
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Discover, join, and create memorable events in your local community. From workshops to concerts, find your
-              next experience with JV Events.
+              Unite, Celebrate, and Create Lasting Memories — Discover, Join, and Host Unforgettable Events with SE Events, Where Every Gathering Becomes an Experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-lg py-6 px-8">
-                <Link href='/events'>Explore Events</Link>
+                <Link href='/events'>Discover Events</Link>
               </Button>
            
             </div>
